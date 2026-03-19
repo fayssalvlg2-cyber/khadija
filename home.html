@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>LAILA STORE</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+
+<header>
+    <h1>KHADIJA STORE</h1>
+</header>
+
+<div class="products">
+    {% for product in products %}
+        <div class="card">
+            <img src="{{ product.image.url }}" alt="{{ product.name }}">
+            <h3>{{ product.name }}</h3>
+
+            {% if product.old_price %}
+                <p><s>{{ product.old_price }} MAD</s> {{ product.price }} MAD</p>
+                <div class="sale">-{{ product.discount }}%</div>
+            {% else %}
+                <p>{{ product.price }} MAD</p>
+            {% endif %}
+
+            <span>{{ product.color }}</span>
+        </div>
+    {% endfor %}
+</div>
+
+</body>
+</html>
